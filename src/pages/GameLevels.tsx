@@ -28,9 +28,9 @@ const GameLevels = () => {
     return (
         <div>
             {
-                notFound ? <NotFound /> : <div className="max-w-lg mx-auto pt-10 flex flex-col justify-center">
+                notFound ? <NotFound /> : <div className="max-w-xl mx-auto pt-10 flex flex-col justify-center">
                     {gameDetails && <h1 className='text-xl font-bold text-center'>{gameDetails?.title} Levels </h1>}
-                    <div className="mt-10 grid grid-cols-10 gap-2 p-4">
+                    <div className="mt-10 grid grid-cols-6 sm:grid-cols-8 xl:grid-cols-10 gap-2 px-4">
                         {
                             gameLevels.map((level, index) => (
                                 level.isActive && <NavLink

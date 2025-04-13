@@ -92,7 +92,7 @@ const data = {
     isActive: true,
 }
 
-getOrCreateGameLevelConfig('linkedin-tango', id, data);
+await getOrCreateGameLevelConfig('linkedin-tango', id, data);
 
 console.log(gameLevel)
 console.log('Parsing Complete closing browser...')
