@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import debounce from "lodash.debounce";
 import { useParams } from 'react-router';
+import Confetti from 'react-confetti'
 
 import { CELL_TYPE } from "@/constants";
 import NotFound from "@/pages/NotFound";
@@ -162,6 +163,7 @@ const GamePanel = () => {
                         ? <div className="text-center w-full">Loading...</div>
                         : <div className="w-9/10 max-w-lg mx-auto pt-10">
                             <div className="flex justify-between mb-2">
+                                {isGameComplete && <Confetti gravity={.5} />}
                                 <div className="bg-indigo-600 py-2 rounded-full text-white font-bold min-w-15 text-center px-5">
                                     {prepareTime(time)}
                                 </div>
