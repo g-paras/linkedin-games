@@ -27,9 +27,9 @@ console.log('Found game', gameNumber);
 
 button?.click();
 
-console.log('Closing tutorial...')
-const closeButton = await page.waitForSelector('#ember44', { timeout: 5000 });
-closeButton?.click();
+// console.log('Closing tutorial...')
+// const closeButton = await page.waitForSelector('#ember44', { timeout: 5000 });
+// closeButton?.click();
 
 
 const computeCellValue = async (cellContentSVG, idx) => {

@@ -21,11 +21,13 @@ jobs:
       - name: Install dependencies
         run: yarn install --dev
 
+      - name: Save service account creds
+        run: |
+          echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_CREDS }}" > firebase_creds.json
+          echo "Secret written to firebase_creds.json"
+
       - name: Run scrapeTango with retries
         run: |
           echo "Starting scrapeTango loop..."
-          until yarn run scrapeTango; do
-            echo "scrapeTango failed. Retrying in 2 minutes..."
-            sleep 120
-          done
+          yarn run scrapeTango
           echo "scrapeTango succeeded!"
