@@ -1,9 +1,7 @@
 import admin from 'firebase-admin';
-import { readFile } from 'fs/promises';
 
-const rawCredentials = await readFile('./firebase-creds.json', 'utf-8');
 admin.initializeApp({
-    credential: admin.credential.cert(JSON.parse(rawCredentials))
+    credential: admin.credential.cert('./firebase-creds.json')
 });
 
 const updateDailyChallenge = async (gameId, dailyChallengeId, dailyChallengeTitle) => {
