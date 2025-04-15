@@ -1,5 +1,7 @@
 
 const GAME_COLLECTION_ID = 'games';
+const USER_COLLECTION_ID = 'users';
+const LEADERBOARD_SUB_COLLECTION_ID = 'user_scores'
 
 export const CELL_TYPE = {
     EMPTY: 0,
@@ -15,4 +17,6 @@ export const CELL_RELATION = {
 
 export {
     GAME_COLLECTION_ID,
+    USER_COLLECTION_ID,
+    LEADERBOARD_SUB_COLLECTION_ID,
 };

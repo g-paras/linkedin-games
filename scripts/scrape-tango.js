@@ -32,6 +32,7 @@ button?.click();
 // closeButton?.click();
 
 
+// TODO: function should be able to handle other values as well (apart from Sun & Moon)
 const computeCellValue = async (cellContentSVG, idx) => {
     if (!cellContentSVG) {
         throw new Error(`Cell content SVG not found at index ${idx}`);
@@ -81,7 +82,6 @@ for (let i = 0; i < 36; i++) {
     };
 }
 
-// Write document to firestore
 const today = new Date();
 const id = today.toISOString().split('T')[0];
 const data = {

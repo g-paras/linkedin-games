@@ -13,4 +13,13 @@ type GameInfo = {
     // levels: GameLevel[],
 }
 
-export type { GameInfo, GameLevel };
+type UserAuth = {
+  isLoggedIn: boolean,
+  userDetails?: {
+    displayName: string,
+    avatar?: string,
+    uid: string
+  }
+}
+
+export type { GameInfo, GameLevel, UserAuth };
