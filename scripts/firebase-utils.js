@@ -17,14 +17,15 @@ const updateDailyChallenge = async (gameId, dailyChallengeId, dailyChallengeTitl
     })
 }
 
-const getOrCreateGameLevelConfig = async (collectionId, documentId, content) => {
+const getOrCreateGameLevelConfig = async (collectionId, documentId, content, updateDC = true) => {
     const db = admin.firestore();
     const docRef = db.collection(collectionId).doc(documentId);
     await docRef.set({
         ...content,
         createdAt: admin.firestore.FieldValue.serverTimestamp(),
     });
-    await updateDailyChallenge(collectionId, documentId, content.gameNumber);
+    if (updateDC)
+        await updateDailyChallenge(collectionId, documentId, content.gameNumber);
 }
 
 export { getOrCreateGameLevelConfig };

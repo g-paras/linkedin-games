@@ -2,7 +2,7 @@ import { NavLink } from 'react-router';
 import { useState, useEffect } from 'react';
 
 import { getAllGameDetails } from '@/firebase/utils';
-import { GameInfo } from '@/types';
+import { GameInfo } from '@/types';;
 
 const Home = () => {
     const [gameDetails, setGameDetails] = useState<GameInfo[]>([]);
@@ -16,7 +16,7 @@ const Home = () => {
 
 
     return (
-        <div className="bg-gray-100 flex items-center justify-center min-h-screen">
+        <div className="bg-gray-100 flex mt-10 justify-center mx-6">
             {
                 gameDetails.map((game, index) => (
                     <div key={`gameCard-${index}`} className="flex bg-white rounded-2xl shadow-lg overflow-hidden max-w-3xl w-full">
