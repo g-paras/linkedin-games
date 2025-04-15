@@ -1,0 +1,31 @@
+name: Scrape Tango at 12:30 IST
+
+on:
+  schedule:
+    - cron: '0 7 * * *'  # Runs at 12:30 PM IST every day
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.16.0'
+
+      - name: Install dependencies
+        run: yarn install --dev
+
+      - name: Run scrapeTango with retries
+        run: |
+          echo "Starting scrapeTango loop..."
+          until yarn run scrapeTango; do
+            echo "scrapeTango failed. Retrying in 2 minutes..."
+            sleep 120
+          done
+          echo "scrapeTango succeeded!"
